@@ -1,6 +1,6 @@
 ## The base for a State
 @icon("uid://cbxsiwg5hkbla")
-@abstract class_name State extends Node
+class_name State extends Node
 
 #region Props
 ## a refference to the parent state machine
@@ -37,24 +37,30 @@ signal on_state_disable
 #region State Management Methods
 
 ## method run before this state becomes the active state for setup purposes. The [param previous_state_name] contains the name of the state which was active before this state becomes active or an empty string if this is the first state to become active
-@abstract func state_enter(previous_state_name : String) -> void
+func state_enter(previous_state_name : String) -> void:
+	pass
 
 ## method run before this state stops being the active state for cleanup purposes. The [param previous_state_name] contains the name of the state which will become active after this state is no longer active or an empty string if this is the last state to be active before the state machine gets disabled
-@abstract func state_exit(next_state_name : String) -> void
+func state_exit(next_state_name : String) -> void:
+	pass
 
 ## method run when the state machine is started for initialization purposes
-@abstract func state_setup() -> void
+func state_setup() -> void:
+	pass
 
 #endregion
 #region Methods used by active state
 ## Runs every frame if this State is the currently active state
-@abstract func state_update(_delta : float) -> void
+func state_update(_delta : float) -> void:
+	pass
 
 ## Runs every physics frame if this State is the currently active state
-@abstract func state_physics_update(_delta : float) -> void
+func state_physics_update(_delta : float) -> void:
+	pass
 
 ## Runs every time an input is made if this State is the currently active state
-@abstract func state_input(_event : InputEvent) -> void
+func state_input(_event : InputEvent) -> void:
+	pass
 
 #endregion
 #region Utilities
